@@ -32,8 +32,8 @@ app.post("/employee", async (req: express.Request, res: express.Response) => {
     const employee: IEmployee = req.body;
     const result = await model.addEmployee(employee);
     res.status(200).send(result);
-  } catch (e) {
-    res.status(500).send(e.message);
+  } catch (error) {
+    res.status(500).send(error.message);
   }
 });
 
@@ -44,8 +44,8 @@ app.delete(
       const id = req.params.id;
       const result = await model.deleteEmployee(id);
       res.status(200).send(result);
-    } catch (e) {
-      res.status(500).send(e);
+    } catch (error) {
+      res.status(500).send(error);
     }
   }
 );
@@ -58,8 +58,8 @@ app.put(
       const employee: IEmployee = req.body;
       const result = await model.editEmployee(id, employee);
       res.status(200).send(result);
-    } catch (e) {
-      res.status(500).send(e);
+    } catch (error) {
+      res.status(500).send(error);
     }
   }
 );
