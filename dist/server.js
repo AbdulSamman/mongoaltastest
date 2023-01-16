@@ -28,8 +28,8 @@ app.post("/employee", async (req, res) => {
         const result = await model.addEmployee(employee);
         res.status(200).send(result);
     }
-    catch (e) {
-        res.status(500).send(e.message);
+    catch (error) {
+        res.status(500).send(error.message);
     }
 });
 app.delete("/employee/:id", async (req, res) => {
@@ -38,8 +38,8 @@ app.delete("/employee/:id", async (req, res) => {
         const result = await model.deleteEmployee(id);
         res.status(200).send(result);
     }
-    catch (e) {
-        res.status(500).send(e);
+    catch (error) {
+        res.status(500).send(error);
     }
 });
 app.put("/employee/:id", async (req, res) => {
@@ -49,8 +49,8 @@ app.put("/employee/:id", async (req, res) => {
         const result = await model.editEmployee(id, employee);
         res.status(200).send(result);
     }
-    catch (e) {
-        res.status(500).send(e);
+    catch (error) {
+        res.status(500).send(error);
     }
 });
 app.listen(config.port, () => {
